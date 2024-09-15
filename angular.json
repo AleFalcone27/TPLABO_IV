@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TP-LABIV": {
+    "tp-labiv": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TP-LABIV:build:production"
+              "buildTarget": "tp-labiv:build:production"
             },
             "development": {
-              "buildTarget": "TP-LABIV:build:development"
+              "buildTarget": "tp-labiv:build:development"
             }
           },
           "defaultConfiguration": "development"
