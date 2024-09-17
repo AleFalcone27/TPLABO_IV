@@ -9,9 +9,6 @@
           <h2 class="mb-8 text-4xl font-bold text-indigo-600 md:text-5xl">Sobre mi</h2>
 
           <p class="text-sm text-4xl sm:text-base"> Mi nombre es Alejo Falcone tengo 22 años y soy una apasionado del desarrollo<br> Recientemente comence a trabajar en el rubro como Junior Cloud Developer.<br> <br> Siempre me llamó mas la atención el Backend pero hace un tiempito que le estoy encontrando el gusto al Frentend.</p>
-
-          Proximamente la imagen.....
-
           <a href="https://www.linkedin.com/in/alejo-falcone/" class="w-36 rounded-md bg-black px-6 py-3 text-center font-semibold text-white"> LinkedIn </a>
           <a href="https://www.linkedin.com/in/alejo-falcone/" class="w-36 rounded-md bg-black px-6 py-3 text-center font-semibold text-white"> Github </a>
 
@@ -84,7 +81,9 @@
           </div>-->
         </div> 
         <!-- Image -->
-        <div class="w-full rounded-md bg-gray-100 max-[991px]:h-[475px] lg:w-2/5"></div>
+        <div class="w-full rounded-md bg-gray-100 max-[250px]:h-[250px] lg:w-1/5" style="height: 220px; width:220px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+          <img [src]="imageUrl" alt="Imagen de Perfil" style="width: 200px; height: 200px; object-fit: cover;" class="rounded-md">
+        </div>
       </div>
     </div>
   </section>
