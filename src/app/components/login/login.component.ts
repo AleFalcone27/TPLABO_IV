@@ -22,6 +22,7 @@ import { addIcons } from "ionicons";
 })
 export class LoginComponent {
 
+  imageUrl: string = 'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/joystick_1f579-fe0f.ico?alt=media&token=fb4151b2-dea8-4270-9423-f8ec59de49fc';
   registerForm: FormGroup;
   email = '';
   password = '';

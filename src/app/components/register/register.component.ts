@@ -17,6 +17,7 @@ import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
 })
 export class RegisterComponent {
 
+  imageUrl: string = 'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/joystick_1f579-fe0f.ico?alt=media&token=fb4151b2-dea8-4270-9423-f8ec59de49fc';
   registerForm: FormGroup;
 
   constructor(private router: Router, private firestore: Firestore, private snackBar: SnackBarOverviewExample) {
