@@ -42,10 +42,8 @@ export class LoginComponent {
       console.log(userCredential)
       this.WriteLog();
       this.router.navigate(['/home']);
-      //const user = userCredential.user;
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage);
     });
@@ -56,6 +54,13 @@ export class LoginComponent {
     const docRef = await addDoc(col, {
       email: this.registerForm.get('email')?.value,
       date: Timestamp.now()
+    });
+  }
+
+  MockLogin(email:String,password:String){
+    this.registerForm.patchValue({
+      email: email,
+      password: password
     });
   }
 }

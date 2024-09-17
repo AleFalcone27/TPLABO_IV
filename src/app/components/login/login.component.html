@@ -22,8 +22,15 @@
         </div>
       </div>
 
-      <div>
-        <button (click)="LogIn()" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ingresa</button>
+      <button (click)="LogIn()" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ingresa</button>
+      <div class="flex items-center display- justify-between">
+ 
+        <!-- mock user 1 -->
+        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mock-users-button" (click)="MockLogin('usuario1@gmail.com','Usuario123')"> Usuario 1 </button>
+        <!-- mock user 2 -->
+        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" (click)="MockLogin('usuario2@gmail.com','Usuario123')"> Usuario 2 </button>
+        <!-- mock user 3 -->
+        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" (click)="MockLogin('usuario3@gmail.com','Usuario123')"> Usuario 3 </button>
       </div>
     </form>
 
