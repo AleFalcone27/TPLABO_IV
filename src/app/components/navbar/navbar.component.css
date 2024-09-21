@@ -1,0 +1,16 @@
+.text-sm {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.text-sm:hover {
+    color:#667eea;
+}
+
+.navbar-container {
+  transition: transform 0.1s ease-out; /* add this line */
+}
+
+.navbar-container:hover {
+    transform: scale(1.1)
+}
