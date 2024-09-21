@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { AngularFireAuth} from '@angular/fire/compat/auth';
 import { getAuth, signOut } from "firebase/auth";
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +9,17 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   user!: object | null;
-  auth!:AngularFireAuth
+  auth!:Auth
 
   constructor() {}
 
   public isLoggedIn(){
-    const auth = getAuth()
-    console.log(auth.currentUser);
-    return this.user = auth.currentUser
+    this.auth = getAuth()
+    return this.auth.currentUser;
   }
  
   LogOut(){
-    //modificar esto
-    const auth = getAuth()
-    signOut(auth)
-    console.log(auth.currentUser);
+    signOut(this.auth)
   }
-  
-    
-
 
 }

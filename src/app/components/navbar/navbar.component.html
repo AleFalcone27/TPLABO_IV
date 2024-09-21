@@ -1,13 +1,18 @@
-<div
-    class="relative bg-white p-4 shadow-md mx-auto w-full max-w-md rounded-3xl border-dashed border-4 border-indigo-500 navbar-container"
-    style="margin-top: 20px"
-    >
-    <div class="mx-auto flex w-full max-w-md flex-row justify-around"
-        style="align-items: center;"
-    >
-        <a href="/login" class="text-sm">
-            Iniciar sesion
-        </a>
+<div class="relative bg-white p-4 shadow-md mx-auto w-full max-w-md rounded-3xl border-dashed border-4 border-indigo-500 navbar-container"
+    style="margin-top: 20px">
+    <div class="mx-auto flex w-full max-w-md flex-row justify-around" style="align-items: center;">
+        <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+            <a (click)="authService.LogOut()" href="/login" class="text-sm">
+                Cerrar sesión
+            </a>
+        </ng-container>
+
+        <ng-template #notLoggedIn>
+            <a href="/login" class="text-sm">
+                Iniciar sesión
+            </a>
+        </ng-template>
+
         <a href="#" class="text-sm">
             Home
         </a>
@@ -16,5 +21,3 @@
         </a>
     </div>
 </div>
-
-

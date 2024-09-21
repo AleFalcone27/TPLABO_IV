@@ -6,7 +6,7 @@ import { WhoAmIComponent } from './components/who-am-i/who-am-i.component';
 
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch:'full' },
+    { path: '', redirectTo: '/login', pathMatch:'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
