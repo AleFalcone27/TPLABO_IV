@@ -1,7 +1,10 @@
-<div class="flex min-h-full flex-col px-6 py-12 lg:px-8" style="margin-top: 1.5%;">
+<div class="slider-thumb1"></div>
+<div class="slider-thumb2"></div>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <div class="flex justify-center mb-12">
-      <img [src]="imageUrl" alt="Imagen de Perfil" style="width: 180px; height: 180px; object-fit: cover;" class="rounded-md">
+      <img [src]="imageUrl" alt="Imagen de Perfil" style="width: 180px; height: 180px; object-fit: cover;"
+        class="rounded-md">
     </div>
     <h2 class="text-center text-7xl font-bold leading-9 tracking-tight text-indigo-600">Inicia sesion</h2>
   </div>
@@ -11,7 +14,8 @@
       <div>
         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
         <div class="mt-2">
-          <input id="email" name="email" type="email" autocomplete="email" formControlName="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-950 sm:text-sm sm:leading-6">
+          <input id="email" name="email" type="email" autocomplete="email" formControlName="email" required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
       </div>
 
@@ -20,19 +24,28 @@
           <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
         </div>
         <div class="mt-2">
-          <input id="password" name="password" type="password" autocomplete="current-password" formControlName="password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-950 sm:text-sm sm:leading-6">
+          <input id="password" name="password" type="password" autocomplete="current-password"
+            formControlName="password" required
+            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
         </div>
       </div>
 
-      <button (click)="LogIn()" type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ingresa</button>
+      <button (click)="LogIn()" type="submit"
+        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ingresa</button>
       <div class="flex items-center display- justify-between">
- 
+
         <!-- mock user 1 -->
-        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mock-users-button" (click)="MockLogin('usuario1@gmail.com','Usuario123')"> Usuario 1 </button>
+        <button
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mock-users-button"
+          (click)="MockLogin('usuario1@gmail.com','Usuario123')"> Usuario 1 </button>
         <!-- mock user 2 -->
-        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" (click)="MockLogin('usuario2@gmail.com','Usuario123')"> Usuario 2 </button>
+        <button
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          (click)="MockLogin('usuario2@gmail.com','Usuario123')"> Usuario 2 </button>
         <!-- mock user 3 -->
-        <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" (click)="MockLogin('usuario3@gmail.com','Usuario123')"> Usuario 3 </button>
+        <button
+          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          (click)="MockLogin('usuario3@gmail.com','Usuario123')"> Usuario 3 </button>
       </div>
     </form>
 
