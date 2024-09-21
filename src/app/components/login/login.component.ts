@@ -41,14 +41,22 @@ export class LoginComponent {
 
     signInWithEmailAndPassword(auth, this.email, this.password)
       .then((userCredential) => {
-        // Signed in 
         this.snackBar.openSnackBar('Iniciaste sesion correctamente', '✅');
         this.WriteLog();
         this.router.navigate(['/home']);
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
+        console.log(error.code)
+        switch (error.code) {
+          case 'auth/invalid-email':
+            this.snackBar.openSnackBar('El correo electrónico es inválido', '❌');
+            break;
+          case 'auth/invalid-credential':
+            this.snackBar.openSnackBar('Las credenciales son incorrectas', '❌');
+            break;
+          default:
+            this.snackBar.openSnackBar('Error', '❌');
+        }
       });
   }
 
