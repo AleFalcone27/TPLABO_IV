@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Firestore, collection, addDoc, Timestamp, snapToData } from '@angular/fire/firestore';
 import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
+import { AuthService } from '../../services/auth.service';
 
 //@ts-ignore
 import { addIcons } from "ionicons";
@@ -27,7 +28,7 @@ export class LoginComponent {
   email = '';
   password = '';
 
-  constructor(private router: Router, private firestore: Firestore, private snackBar: SnackBarOverviewExample) {
+  constructor(private AuthService:AuthService, private router: Router, private firestore: Firestore, private snackBar: SnackBarOverviewExample) {
     this.registerForm = new FormGroup({
       email: new FormControl(''),
       password: new FormControl('')
@@ -38,10 +39,9 @@ export class LoginComponent {
     const auth = getAuth();
     this.email = this.registerForm.get('email')?.value;
     this.password = this.registerForm.get('password')?.value;
-
     signInWithEmailAndPassword(auth, this.email, this.password)
       .then((userCredential) => {
-        this.snackBar.openSnackBar('Iniciaste sesion correctamente', '✅');
+        this.snackBar.openSnackBar('Hola, ' + ` ${userCredential.user.email}`, '✅');
         this.WriteLog();
         this.router.navigate(['/home']);
       })
