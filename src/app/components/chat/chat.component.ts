@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { addDoc, getDocs, collection, Firestore, Timestamp } from '@angular/fire/firestore'
+import { addDoc, getDocs, collection, Firestore, query,orderBy } from '@angular/fire/firestore'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { user } from '@angular/fire/auth';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -12,17 +13,17 @@ import { user } from '@angular/fire/auth';
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CommonModule 
+    CommonModule,
   ],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
 export class ChatComponent implements OnInit {
 
-  messages!:any;
-  
+  messages!: any;
+
   chatForm: FormGroup;
-  constructor(private firestore: Firestore) {
+  constructor(public authService: AuthService,private firestore: Firestore, private appRef: ApplicationRef) {
     this.chatForm = new FormGroup({
       message: new FormControl(''),
     });
@@ -30,7 +31,8 @@ export class ChatComponent implements OnInit {
 
   async ngOnInit(): Promise<any> {
     const col = collection(this.firestore, 'Messages');
-    const messageSnapshot = await getDocs(col);
+    const q = query(col, orderBy('date', 'asc'));
+    const messageSnapshot = await getDocs(q);
     const data = messageSnapshot.docs.map(doc => doc.data());
     this.messages = data;
     console.log(data);
@@ -38,21 +40,17 @@ export class ChatComponent implements OnInit {
 
 
   async postMessage() {
+    console.log('a');
     const auth = getAuth();
+    const fechaActual = new Date();
     let col = collection(this.firestore, 'Messages');
     const docRef = await addDoc(col, {
       message: this.chatForm.get('message')?.value,
-      user: auth.currentUser?.email,
-      date: Timestamp.now()
-    });
-    console.log(docRef);
+      user: auth.currentUser?.email?.split('@')[0],
+      date: `${fechaActual.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} ${fechaActual.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' })}`
+    }).then((p) => {
+      console.log(p);
+      this.ngOnInit()
+    })
   }
-
-
-  async WriteLog() {
-
-  }
-
-
-
 }
