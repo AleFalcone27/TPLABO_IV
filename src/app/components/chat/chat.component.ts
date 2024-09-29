@@ -49,8 +49,8 @@ export class ChatComponent implements OnInit {
       user: auth.currentUser?.email?.split('@')[0],
       date: `${fechaActual.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })} ${fechaActual.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric' })}`
     }).then((p) => {
-      console.log(p);
-      this.ngOnInit()
+      this.ngOnInit();
+      this.chatForm.get('message')?.reset();
     })
   }
 }

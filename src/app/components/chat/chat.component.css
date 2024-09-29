@@ -80,3 +80,7 @@
   margin-left: auto;
 }
 
+.no-user-message {
+  color: #4f46e5;
+  font-weight: bold;
+}
