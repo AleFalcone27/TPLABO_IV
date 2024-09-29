@@ -17,6 +17,10 @@ export class AuthService {
     this.auth = getAuth()
     return this.auth.currentUser;
   }
+
+  public getCurrentUSername(){
+    return this.auth.currentUser?.email?.split('@')[0];
+  }
  
   LogOut(){
     signOut(this.auth)
