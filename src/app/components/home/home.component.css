@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+app-home {
+    display: flex;
+}
+
+  .chat-container {
+    margin-left: auto;
+    height: 80vh;
+    width: 25%;
+  }
