@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { addDoc, getDocs, collection, Firestore, query,orderBy } from '@angular/fire/firestore'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { user } from '@angular/fire/auth';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-chat',

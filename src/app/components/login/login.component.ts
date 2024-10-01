@@ -8,7 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Firestore, collection, addDoc, Timestamp, snapToData } from '@angular/fire/firestore';
 import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 //@ts-ignore
 import { addIcons } from "ionicons";

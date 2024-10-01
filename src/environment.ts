@@ -1,4 +1,4 @@
-export const enviroment = 
+export const environment = 
 {
 "projectId":"labo4-4bb6e",
 "appId":"1:971991575922:web:c139eae9ac2b421cbe41eb",

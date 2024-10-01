@@ -3,6 +3,7 @@ import { Auth } from '@angular/fire/auth';
 import { AngularFireAuth} from '@angular/fire/compat/auth';
 import { getAuth, signOut } from "firebase/auth";
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,8 @@ export class AuthService {
   user!: object | null;
   auth!:Auth
 
-  constructor() {}
+  constructor() {
+  }
 
   public isLoggedIn(){
     this.auth = getAuth()

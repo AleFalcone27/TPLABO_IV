@@ -6,8 +6,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { enviroment } from '../enviroment';
+import { environment } from '../environment';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideAnimationsAsync(), provideFirebaseApp(() => initializeApp(enviroment)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient(), provideAnimationsAsync(), provideFirebaseApp(() => initializeApp(environment)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())]
 };

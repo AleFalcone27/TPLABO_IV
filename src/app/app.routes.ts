@@ -3,6 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { WhoAmIComponent } from './components/who-am-i/who-am-i.component';
+import { CardgameComponent } from './components/cardgame/cardgame.component';
 
 
 export const routes: Routes = [
@@ -10,7 +11,8 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'aboutus', component: WhoAmIComponent }
+    { path: 'aboutus', component: WhoAmIComponent },
+    { path: 'juegos/mayoromenor', component: CardgameComponent }
     
     
     //https://labo4-4bb6e.web.app/
