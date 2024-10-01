@@ -1,0 +1,32 @@
+.container {
+    margin: 4% auto;
+    border: dashed #4f46e5 4px;
+    height: 75%;
+    width: 650px; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    justify-content: space-between;
+    padding: 3%;
+}
+
+
+.btn-container {
+    display: flex;
+    align-self: center; 
+    width: 80%;
+    justify-content: space-around;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    width:100%;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 600;
+}
