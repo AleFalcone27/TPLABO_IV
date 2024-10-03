@@ -1,0 +1,28 @@
+<div class="slider-thumb1"></div>
+<div class="slider-thumb2"></div>
+<div class="container">
+    <div>
+
+    </div>
+    <div class="img-container" *ngIf="this.character?.image">
+        <img [src]="this.character.image" alt="">
+    </div>
+
+    <h2 *ngIf="this.character?.image">
+        Score: {{this.score}}
+    </h2>
+
+
+    <div class="btn-container">
+        <button *ngIf="!this.options.length" (click)="getCharacter('')"
+            class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn">
+            Jugar </button>
+
+
+        <button #optionButton *ngFor="let option of this.options" (click)="getCharacter(option)"
+            class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn">
+            {{ option }}
+        </button>
+    </div>
+</div>
+
