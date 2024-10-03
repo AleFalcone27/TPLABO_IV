@@ -24,7 +24,6 @@ export class CardgameComponent implements OnInit {
   constructor(private cardsApiService: CardsApiService,private snackBar: SnackBarOverviewExample) { }
 
   async ngOnInit(): Promise<void> {
-    this.snackBar.openSnackBar('Presiona cualquier botón para comenzar a jugar', '🎲');
     this.cardsApiService.initDeck().subscribe((response) => {
       if (response && response.cards) {
         this.card = response.cards[0];
@@ -50,8 +49,6 @@ export class CardgameComponent implements OnInit {
           this.score++;
         } else if (guess === 'menor' && newCardValue < lastCardValue) {
           this.score++;
-        } else if (newCardValue == lastCardValue) {
-          this.score;
         } else {
           if (this.score > 0 ){
             this.score--;

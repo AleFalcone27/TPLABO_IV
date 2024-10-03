@@ -1,18 +1,22 @@
+<div class="slider-thumb1"></div>
+<div class="slider-thumb2"></div>
 <div class="container">
-
     <div class="img-container" *ngIf="card?.image">
         <img [src]="card.image" alt="">
-      </div>
-
-    <h2>
+    </div>
+    <h2 *ngIf="card?.image">
         Score: {{this.score}}
     </h2>
-    
-    <div class="btn-container">
+    <div *ngIf="card?.image" class="btn-container">
         <button (click)="drawNext('mayor')"
-        class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn"> MAYOR </button>
-    
+            class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn">
+            MAYOR </button>
+
         <button (click)="drawNext('menor')"
-        class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn"> MENOR </button>
+            class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn">
+            MENOR </button>
     </div>
+    <Button *ngIf="!card?.image"
+        class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn"
+        (click)="drawNext('menor')"> Jugar </Button>
 </div>
