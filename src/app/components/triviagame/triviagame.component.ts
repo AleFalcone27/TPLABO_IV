@@ -53,7 +53,7 @@ export class TriviagameComponent implements OnInit{
     this.resetGame();
     this.character = this.characterList[this.getRandomCharacter()];
     console.log(this.character);
-    this.getOptions();
+    this.getOptions(); 
     this.flag = true;
     this.guess++;
     return this.options;
@@ -75,6 +75,7 @@ export class TriviagameComponent implements OnInit{
     randomOptions.push(this.character.name);
     this.options = this.shuffle(randomOptions);
     return this.options;
+    
   }
 
   resetGame(){
