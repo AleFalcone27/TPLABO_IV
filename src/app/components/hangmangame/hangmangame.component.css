@@ -1,0 +1,192 @@
+.container {
+    margin: 4% auto;
+    border: dashed #4f46e5 4px;
+    height: 75%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    justify-content: space-between;
+    padding: 3%;
+    z-index: 3;
+    align-items: center;
+}
+
+.keyboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 40%;
+    align-self: flex-end;
+    width: 100%;
+}
+
+.key {
+    padding: 10px;
+    font-size: 18px;
+    width: 10%;
+    margin: 5px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.stickman {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.head {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000000;
+
+}
+
+.body {
+    position: absolute;
+    top: 49px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 110px;
+    border-radius: 20px;
+    background-color: #000000;
+}
+
+.arm-left {
+    position: absolute;
+    top: 63px;
+    left: 20%;
+    rotate: 90deg;
+    width: 15px;
+    height: 55px;
+    background-color: #000000;
+    border-radius: 20px;
+    animation: arm-left-animation 2s infinite;
+}
+
+.arm-right {
+    position: absolute;
+    top: 50px;
+    right: 20%;
+    rotate: 90deg;
+    width: 15px;
+    height: 55px;
+    background-color: #000000;
+    border-radius: 20px;
+    animation: arm-right-animation 2s infinite;
+}
+
+.leg-left {
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    rotate: 10deg;
+    width: 15px;
+    height: 60px;
+    background-color: #000000;
+    border-radius: 20px;
+    animation: leg-left-animation 2s infinite;
+}
+
+.leg-right {
+    position: absolute;
+    bottom: 0;
+    right: 35%;
+    rotate: -10deg;
+    width: 15px;
+    height: 60px;
+    background-color: #000000;
+    border-radius: 20px;
+    animation: leg-right-animation 2s infinite;
+}
+
+
+.rope {
+    width: 5px;
+    height: 10vh;
+    top: 0;
+    background-color: #000000;
+    margin-left: 48%;
+}
+
+
+@keyframes arm-left-animation {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(30deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+@keyframes arm-right-animation {
+    0% {
+        transform: translateX(50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(50%) rotate(-30deg);
+    }
+
+    100% {
+        transform: translateX(50%) rotate(0deg);
+    }
+}
+
+@keyframes leg-left-animation {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(30deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+@keyframes leg-right-animation {
+    0% {
+        transform: translateX(50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(50%) rotate(-30deg);
+    }
+
+    100% {
+        transform: translateX(50%) rotate(0deg);
+    }
+}
+
+
+span {
+    font-size: 3em;
+    margin: 10px;
+}
+
+.encontrada {
+    background-color: #C6F4D6;
+}
+
+.no-encontrada {
+    background-color: #FFC5C5;
+}

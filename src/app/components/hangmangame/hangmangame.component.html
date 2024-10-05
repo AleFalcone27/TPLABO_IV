@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="stick-container">
+
+        <div class="hanging-stickman">
+            <div class="rope"></div>
+            <div class="stickman">
+                <div *ngIf="this.errors >= 1" class="head"></div>
+                <div *ngIf="this.errors >= 2" class="body"></div>
+                <div *ngIf="this.errors >= 3" class="arm-left"></div>
+                <div *ngIf="this.errors >= 4" class="arm-right"></div>
+                <div *ngIf="this.errors >= 5" class="leg-left"></div>
+                <div *ngIf="this.errors >= 6" class="leg-right"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div #viewer></div>
+
+    <div class="word-container">
+        <span *ngFor="let letter of mockWord">{{letter}}</span>
+    </div>
+
+
+    <div class="keyboard-container">
+        <button *ngFor="let letter of letterList" [class.encontrada]="lettersStatus[letter] === 'encontrada'"
+            [class.no-encontrada]="lettersStatus[letter] === 'no-encontrada'"
+            [disabled]="lettersStatus[letter] !== undefined"
+            class="flex justify-center rounded-md bg-indigo-600 px-12 py-6 text-sm leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 submit-btn key"
+            (click)="keyPressed(letter)">{{ letter }}</button>
+    </div>
+
+</div>
