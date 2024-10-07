@@ -6,6 +6,7 @@ import { WhoAmIComponent } from './components/who-am-i/who-am-i.component';
 import { CardgameComponent } from './components/cardgame/cardgame.component';
 import { TriviagameComponent } from './components/triviagame/triviagame.component';
 import { HangmangameComponent } from './components/hangmangame/hangmangame.component';
+import { NumblegameComponent } from './components/numblegame/numblegame.component';
 
 
 export const routes: Routes = [
@@ -16,10 +17,7 @@ export const routes: Routes = [
     { path: 'aboutus', component: WhoAmIComponent },
     { path: 'juegos/mayoromenor', component: CardgameComponent },
     { path: 'juegos/trivia', component: TriviagameComponent },
-    { path: 'juegos/ahorcado', component: HangmangameComponent }
-    
-    
-    //https://labo4-4bb6e.web.app/
-
+    { path: 'juegos/ahorcado', component: HangmangameComponent },
+    { path: 'juegos/numdle', component: NumblegameComponent }
     //{ path: '**', component: PageNotFoundComponent },
 ];
