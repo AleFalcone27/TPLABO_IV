@@ -1,4 +1,32 @@
-        <div class="chat-container">
-          <app-chat></app-chat>
-        </div>
+<div class="home-container">
+  <div class="cards-container">
 
+    <app-homecard 
+    [title]="'MAYOR O MENOR'" 
+    [description]="'En el juego de Mayor o Menor, debes adivinar si la carta siguiente será mayor o menor que la carta actual. Si aciertas ganarás 1 punto, caso contrario perderás 1 ¿Estás listo para este desafío?'" 
+    [path]="'/mayoromenor'"
+    ></app-homecard>
+
+    <app-homecard 
+    [title]="'AHORCADO'" 
+    [description]="'En este juego, debes adivinar la palabra misteriosa con un maximo de 6 erores. Si logras adivinar la palabra recibiras 10 puntos, si pierdes 0 ¿Estás listo para probar tu suerte?'" 
+    [path]="'/ahorcado'"
+    ></app-homecard>
+
+    <app-homecard 
+    [title]="'TRIVIA'" 
+    [description]="'Este juego, esta basado en la famosa serie de Rick y Morty. Podras adivinar los nombres de más de 800 personajes'" 
+    [path]="'/trivia'"
+    ></app-homecard>
+
+    <app-homecard 
+    [title]="'NUMDLE'" 
+    [description]="'Este juego, tendras 6 oportunidades para adivinar una número aleatorio, todos los dias es un numero diferente'" 
+    [path]="'/numdle'"
+    ></app-homecard>
+
+  </div>
+  <div class="chat-container">
+    <app-chat></app-chat>
+  </div>
+</div>

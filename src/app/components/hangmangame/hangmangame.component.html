@@ -20,8 +20,6 @@
     <div class="word-container">
         <span *ngFor="let letter of mockWord">{{letter}}</span>
     </div>
-
-
     <div class="keyboard-container">
         <button *ngFor="let letter of letterList" [class.encontrada]="lettersStatus[letter] === 'encontrada'"
             [class.no-encontrada]="lettersStatus[letter] === 'no-encontrada'"

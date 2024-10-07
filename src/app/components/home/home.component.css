@@ -1,16 +1,31 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-app-home {
-    display: flex;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-  .chat-container {
-    margin-left: auto;
-    height: 80vh;
-    width: 25%;
-  }
+app-home {
+  display: flex;
+}
+
+.home-container {
+  display: flex;
+  padding: 1%;
+}
+
+.chat-container {
+  margin-left: auto;
+  margin: 3vh;
+  height: 75vh;
+  width: 25%;
+}
+
+.cards-container {
+  display: flex;
+  width: 75%;
+  padding: 1%;
+  justify-content: space-arround;
+  flex-wrap: wrap;
+}
