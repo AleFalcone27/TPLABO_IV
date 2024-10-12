@@ -1,0 +1,43 @@
+.container {
+    margin: 4% auto;
+    border: dashed #4f46e5 4px;
+    height: 75%;
+    width: 800px; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    justify-content: space-between;
+    padding: 3%;
+    z-index: 3;
+    flex-wrap: wrap;
+}
+
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.quote-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  width: 80vw;
+  border: red solid 2px;
+}
+
+span { 
+  font-size: 2em;
+}
