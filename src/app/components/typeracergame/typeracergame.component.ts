@@ -100,5 +100,6 @@ export class TyperacerComponent {
   stopCountdown(): void {
     clearInterval(this.countdownInterval);
     this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 7 intentos. Ganaste 0 puntos', '❌');
+    this.hiddenTextarea.nativeElement.blur(); 
   }
 }
