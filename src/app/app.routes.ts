@@ -6,7 +6,7 @@ import { WhoAmIComponent } from './components/who-am-i/who-am-i.component';
 import { CardgameComponent } from './components/cardgame/cardgame.component';
 import { TriviagameComponent } from './components/triviagame/triviagame.component';
 import { HangmangameComponent } from './components/hangmangame/hangmangame.component';
-import { TyperacerComponent } from './components/typeracer-game/typeracergame.component';
+import { TyperacerComponent } from './components/typeracergame/typeracergame.component';
 
 
 export const routes: Routes = [
