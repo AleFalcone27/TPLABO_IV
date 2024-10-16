@@ -6,7 +6,7 @@ import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
 import { CommonModule } from '@angular/common';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ScoreService } from '../../services/scores/score.service';
-import { Firestore, collection, addDoc, Timestamp } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardgame',
@@ -23,7 +23,7 @@ export class CardgameComponent implements OnInit {
   guessCount: number = 0;
   score: number = 0;
 
-  constructor(private firestore:Firestore, private scoreService:ScoreService, private cardsApiService: CardsApiService,private snackBar: SnackBarOverviewExample, private dialog:MatDialog, private dialogComponent:DialogComponent) { }
+  constructor(private router:Router, private scoreService:ScoreService, private cardsApiService: CardsApiService,private snackBar: SnackBarOverviewExample, private dialog:MatDialog, private dialogComponent:DialogComponent) { }
 
   async ngOnInit(): Promise<void> {
     this.cardsApiService.initDeck().subscribe((response) => {
@@ -35,19 +35,17 @@ export class CardgameComponent implements OnInit {
 
   drawNext(guess: string): void {
     if (this.guessCount >= 10) {
+
       console.log(this.snackBar.openSnackBar('Ya alcanzaste el máximo de intentos', '❌'));
 
       this.dialogComponent.openDialog().afterClosed().subscribe(result => {
+
+        this.scoreService.WriteScore(1,this.score) // Guardamos la putuacion en la base de datos
+        
         if (result) {
-          // Logica para volver a jugar
-          // llamar funcion replay
-
-
-          console.log('User  wants to play again');
+          this.replay();
         } else {
-          // Guardar el puntaje
-          // Logica para salir del juego a home
-          console.log('User  wants to exit');
+          this.exit();
         }
       });
     }
@@ -89,11 +87,15 @@ export class CardgameComponent implements OnInit {
         return parseInt(value);
     }
   }
-  async WriteLog() {
-    let col = collection(this.firestore, 'Scores');
-    const docRef = await addDoc(col, {
-      // add controller properties
-    });
+
+  replay() {
+    this.guessCount = 0;
+    this.score = 0;
+    this.drawNext('');
+  }
+
+  exit() {
+    this.router.navigate(['/home']);
   }
 
 }
