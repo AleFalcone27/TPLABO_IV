@@ -2,14 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { WordsApiService } from '../../services/words-api/words-api.service';
 import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
 import { CommonModule } from '@angular/common';
+import { ScoreService } from '../../services/scores/score.service';
+import { Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-hangmangame',
   standalone: true,
-  imports: [CommonModule, SnackBarOverviewExample],
+  imports: [CommonModule, SnackBarOverviewExample, DialogComponent],
   templateUrl: './hangmangame.component.html',
   styleUrl: './hangmangame.component.css',
-  providers: [SnackBarOverviewExample]
+  providers: [SnackBarOverviewExample, DialogComponent]
 })
 
 export class HangmangameComponent implements OnInit {
@@ -21,7 +24,7 @@ export class HangmangameComponent implements OnInit {
   public lettersStatus: { [key: string]: string } = {};
   private score: number = 0;
 
-  constructor(private WordsApiService: WordsApiService, private snackBar: SnackBarOverviewExample) {
+  constructor(private router: Router, private scoreService: ScoreService, private WordsApiService: WordsApiService, private snackBar: SnackBarOverviewExample, private dialogComponent: DialogComponent) {
 
   }
 
@@ -49,15 +52,41 @@ export class HangmangameComponent implements OnInit {
       if (this.word.toUpperCase() == this.mockWord.join('')) {
         this.score = 10;
         this.snackBar.openSnackBar('¡Juego terminado! . Ganaste 10 puntos', '✅');
+        this.endGame();
       }
     }
     else {
       this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 7 intentos. Ganaste 0 puntos', '❌');
+      this.endGame();
     }
+  }
+
+  endGame() {
+
+    this.dialogComponent.openDialog().afterClosed().subscribe(result => {
+
+      this.scoreService.WriteScore(2, this.score) // Guardamos la putuacion en la base de datos
+
+      if (result) {
+        this.replay();
+      } else {
+        this.exit();
+      }
+    });
   }
 
   eliminarDiacriticos(texto: string) {
     return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
   }
 
+  replay() {
+    this.errors = 0;
+    this.score = 0;
+    this.lettersStatus = {};
+    this.ngOnInit();
+  }
+
+  exit() {
+    this.router.navigate(['/home']);
+  }
 }
