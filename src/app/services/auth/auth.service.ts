@@ -23,6 +23,11 @@ export class AuthService {
   public getCurrentUSername(){
     return this.auth.currentUser?.email?.split('@')[0];
   }
+
+  public getCurrentUserEmail(){
+    return this.auth.currentUser?.email;
+  }
+
  
   LogOut(){
     signOut(this.auth)
