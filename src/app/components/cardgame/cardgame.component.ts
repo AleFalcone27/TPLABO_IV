@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DialogComponent } from '../dialog/dialog.component';
 import { ScoreService } from '../../services/scores/score.service';
 import { Router } from '@angular/router';
+import { IGame } from '../../interfaces/iGame';
 
 @Component({
   selector: 'app-cardgame',
@@ -17,7 +18,7 @@ import { Router } from '@angular/router';
   providers: [SnackBarOverviewExample, DialogComponent]
 
 })
-export class CardgameComponent implements OnInit {
+export class CardgameComponent implements OnInit, IGame {
   card!: card;
   lastCard!: card;
   guessCount: number = 0;
@@ -35,7 +36,7 @@ export class CardgameComponent implements OnInit {
 
   drawNext(guess: string): void {
     if (this.guessCount >= 10) {
-      this.endgame()
+      this.endGame()
     }
 
     this.lastCard = { ...this.card };
@@ -76,7 +77,7 @@ export class CardgameComponent implements OnInit {
     }
   }
 
-  endgame() {
+  endGame() {
     console.log(this.snackBar.openSnackBar('Ya alcanzaste el máximo de intentos', '❌'));
 
     this.dialogComponent.openDialog().afterClosed().subscribe(result => {
