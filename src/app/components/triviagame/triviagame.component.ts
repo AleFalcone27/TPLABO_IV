@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RickandmortyApiService } from '../../services/rickandmorty-api/rickandmorty-api.service';
-import { tap } from 'rxjs/operators';
 import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
 import { CommonModule } from '@angular/common';
-import { empty } from 'rxjs';
+import { ScoreService } from '../../services/scores/score.service';
+import { Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-triviagame',
   standalone: true,
-  imports: [SnackBarOverviewExample,CommonModule],
+  imports: [SnackBarOverviewExample,CommonModule, DialogComponent],
   templateUrl: './triviagame.component.html',
   styleUrl: './triviagame.component.css',
-  providers: [SnackBarOverviewExample]
+  providers: [SnackBarOverviewExample, DialogComponent]
 })
 export class TriviagameComponent implements OnInit{
 
@@ -24,9 +25,9 @@ export class TriviagameComponent implements OnInit{
   characterIndex!: number;
   flag: boolean = false;
   guess: number = 0;
-  guessLimit: number = 11;
+  guessLimit: number = 6;
 
-  constructor(private RickandMortyApiService:RickandmortyApiService,private snackBar: SnackBarOverviewExample) {
+  constructor(private scoreService:ScoreService, private router:Router, private dialogComponent:DialogComponent, private RickandMortyApiService:RickandmortyApiService,private snackBar: SnackBarOverviewExample) {
     this.snackBar.openSnackBar('Presiona cualquier botón para comenzar a jugar', '🎲');
   }
 
@@ -40,8 +41,8 @@ export class TriviagameComponent implements OnInit{
 
   getCharacter(option: string){
     if (this.guess >= this.guessLimit) {
-      this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 10 jugadas.', '🎲');
-      return;
+      this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 5 jugadas.', '🎲');
+      this.endGame()
     }
 
     if (this.flag && option === this.character.name) {
@@ -89,6 +90,32 @@ export class TriviagameComponent implements OnInit{
     } 
     return array; 
   }; 
+
+  endGame() {
+    this.dialogComponent.openDialog().afterClosed().subscribe(result => {
+
+      this.scoreService.WriteScore(3, this.score) // Guardamos la putuacion en la base de datos
+
+      if (result) {
+        this.replay();
+      } else {
+        this.exit();
+      }
+    });
+  }
+
+  replay() {
+    this.flag = false;
+    this.guess = 0;
+    this.score = 0;
+    this.lastCharacters = [];
+    this.ngOnInit();
+    this.getCharacter('');
+  }
+
+  exit () {
+    this.router.navigate(['/home']);
+  }
 
 }
 
