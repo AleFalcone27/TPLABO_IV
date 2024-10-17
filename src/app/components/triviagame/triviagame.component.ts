@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ScoreService } from '../../services/scores/score.service';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
+import { IGame } from '../../interfaces/iGame';
 
 @Component({
   selector: 'app-triviagame',
@@ -14,7 +15,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrl: './triviagame.component.css',
   providers: [SnackBarOverviewExample, DialogComponent]
 })
-export class TriviagameComponent implements OnInit{
+export class TriviagameComponent implements OnInit, IGame{
 
   score: number = 0;
   options: string[] = [];
