@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ScoreService } from '../../services/scores/score.service';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
+import { IGame } from '../../interfaces/iGame';
 
 @Component({
   selector: 'app-typeracer-game',
@@ -16,7 +17,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./typeracergame.component.css'],
   providers: [SnackBarOverviewExample, DialogComponent]
 })
-export class TyperacerComponent {
+export class TyperacerComponent implements IGame {
   quote: string = ''; 
   userInput: string = ''; 
   arrayQuote: { character: string, correct: boolean | null }[] = []; 
