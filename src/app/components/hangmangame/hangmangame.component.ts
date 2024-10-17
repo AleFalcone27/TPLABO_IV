@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ScoreService } from '../../services/scores/score.service';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
+import { IGame } from '../../interfaces/iGame';
 
 @Component({
   selector: 'app-hangmangame',
@@ -15,7 +16,7 @@ import { DialogComponent } from '../dialog/dialog.component';
   providers: [SnackBarOverviewExample, DialogComponent]
 })
 
-export class HangmangameComponent implements OnInit {
+export class HangmangameComponent implements OnInit, IGame {
 
   public letterList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   private word!: string;
