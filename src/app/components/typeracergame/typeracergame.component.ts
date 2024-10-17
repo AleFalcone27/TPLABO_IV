@@ -4,26 +4,29 @@ import { SnackBarOverviewExample } from '../snack-bar/snack-bar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ScoreService } from '../../services/scores/score.service';
+import { Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-typeracer-game',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DialogComponent],
   templateUrl: './typeracergame.component.html',
   styleUrls: ['./typeracergame.component.css'],
-  providers: [SnackBarOverviewExample]
+  providers: [SnackBarOverviewExample, DialogComponent]
 })
 export class TyperacerComponent {
   quote: string = ''; 
   userInput: string = ''; 
   arrayQuote: { character: string, correct: boolean | null }[] = []; 
-  countdown: number = 60; 
+  countdown: number = 5; 
   countdownInterval: any; 
   score: number = 0;
 
   @ViewChild('hiddenTextarea') hiddenTextarea!: ElementRef; 
 
-  constructor(private http: HttpClient, private quoteApiService: QuotesApiService, private snackBar:SnackBarOverviewExample) {}
+  constructor(private router:Router, private scoreService:ScoreService, private dialogComponent:DialogComponent, private http: HttpClient, private quoteApiService: QuotesApiService, private snackBar:SnackBarOverviewExample) {}
 
   ngOnInit(): void {
     this.renderNewQuote();
@@ -99,7 +102,37 @@ export class TyperacerComponent {
 
   stopCountdown(): void {
     clearInterval(this.countdownInterval);
-    this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 7 intentos. Ganaste 0 puntos', '❌');
+    this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 60 segundos', '❌');
     this.hiddenTextarea.nativeElement.blur(); 
+    this.endGame();
   }
+
+  endGame() {
+    this.score = this.arrayQuote.filter(quoteChar => quoteChar.correct).length
+    this.dialogComponent.openDialog().afterClosed().subscribe(result => {
+
+      this.scoreService.WriteScore(4, this.score) // Guardamos la putuacion en la base de datos
+
+      if (result) {
+        this.replay();
+      } else {
+        this.exit();
+      }
+    });
+  }
+
+    replay() {
+      this.quote = ''; 
+      this.userInput = ''; 
+      this.arrayQuote = [];   
+      this.score = 0;
+      this.countdown = 5;
+      this.ngOnInit();
+      this.startCountdown()
+    }
+
+    exit() {
+      this.router.navigate(['/home']);
+    }
+
 }
