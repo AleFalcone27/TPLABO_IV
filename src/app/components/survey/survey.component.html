@@ -1,0 +1,105 @@
+<div class="container">
+
+  <form class="form" [formGroup]="form" (ngSubmit)="sendForm()">
+
+    <div class="form-control-group col-5">
+      <input placeholder="Nombre" type="text"
+        class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        id="name" formControlName="name">
+      <div class="text-danger-container">
+        <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+          <small class="text-danger" *ngIf="name?.errors?.['required']">El nombre es obligatorio. </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group col-5">
+      <input placeholder="Apellido" type="text"
+        class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        id="lastName" formControlName="lastName">
+      <div class="text-danger-container">
+        <div *ngIf="lastName?.invalid && (lastName?.touched || lastName?.dirty)">
+          <small class="text-danger" *ngIf="lastName?.errors?.['required']">El apellido es obligatorio. </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group col-5">
+      <input placeholder="Edad" type="number"
+        class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        id="age" formControlName="age">
+      <div class="text-danger-container">
+        <div *ngIf="age?.invalid && (age?.touched || age?.dirty)">
+          <small class="text-danger" *ngIf="age?.hasError('min')">Debe ser mayor a 18 </small>
+          <small class="text-danger" *ngIf="age?.hasError('max')">Debe ser menor a 99 </small>
+          <small class="text-danger" *ngIf="age?.errors?.['required']">La edad es obligatoria. </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group col-5">
+      <input placeholder="Número de teléfono" type="text"
+        class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        id="phoneNumber" formControlName="phoneNumber">
+      <div class="text-danger-container">
+        <div *ngIf="phoneNumber?.invalid && (phoneNumber?.touched || phoneNumber?.dirty)">
+          <small class="text-danger" *ngIf="phoneNumber?.errors?.['required']">El número de teléfono es
+            obligatorio.</small>
+          <small class="text-danger" *ngIf="phoneNumber?.errors?.['minlength'] || phoneNumber?.errors?.['maxlength']">El número debe tener menos de 10 y más de 8 numeros.</small>
+          <small class="text-danger" *ngIf="phoneNumber?.errors?.['pattern']"> No se permiten letras</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group  rating col-5">
+      <div class="label"> ¿Cúanto te divertiste? </div>
+      <div class="rating-container">
+        <label *ngFor="let rate of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+          <input type="radio" [value]="rate" formControlName="rating"> {{ rate }}
+        </label>
+      </div>
+      <div class="text-danger-container">
+        <div *ngIf="rating?.errors">
+          <small class="text-danger">Debes seleccionar una calificación.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group col-5">
+      <div class="label"> ¿Cúal fue tu juego favorito?: </div>
+      <select formControlName="favGame"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        <option *ngFor="let game of games" [value]="game">{{ game }}</option>
+      </select>
+      <div class="text-danger-container">
+
+        <div *ngIf="favGame?.errors">
+          <small class="text-danger">Debes seleccionar un juego favorito.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control-group col-5">
+      <label class="label">Déjanos algún comentario para que podamos mejorar:</label>
+      <textarea formControlName="comments" rows="4"
+        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+      </textarea>
+      <div class="text-danger-container">
+
+        <div *ngIf="form.get('comments')?.invalid && (form.get('comments')?.touched || form.get('comments')?.dirty)">
+          <small class="text-danger" *ngIf="comments?.hasError('required')">Tu comentario es obligatorio.</small>
+          <small class="text-danger" *ngIf="comments?.hasError('minlength')">Tu comentario no puede tener menos de 10
+            caracteres.</small>
+          <small class="text-danger" *ngIf="comments?.hasError('maxlength')">Tu comentario no puede exceder los 500
+            caracteres.</small>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit"
+      class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mock-users-button">
+      Enviar
+    </button>
+
+  </form>
+</div>

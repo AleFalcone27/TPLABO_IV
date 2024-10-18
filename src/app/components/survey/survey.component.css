@@ -1,0 +1,43 @@
+.container {
+    margin: 4% auto;
+    border: dashed #4f46e5 4px;
+    height: 75%;
+    width: 100vh; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    justify-content: center;
+    padding: 3%;
+}
+
+.form > * {
+    margin-top: 1.5vh;
+}
+
+.label {
+    font-size: medium;
+    font-weight: 600 ;
+    margin-bottom: 0.2vh;
+    color: #4f46e5;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.text-danger {
+    color: red;
+    font-weight: 600 ;
+}
+
+.text-danger-container {
+    height: 1em;
+    margin-bottom: 1vh;
+}
+
+textarea { 
+
+    resize: none;
+}
