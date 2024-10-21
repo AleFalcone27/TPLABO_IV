@@ -8,6 +8,7 @@ import { TriviagameComponent } from './components/triviagame/triviagame.componen
 import { HangmangameComponent } from './components/hangmangame/hangmangame.component';
 import { TyperacerComponent } from './components/typeracergame/typeracergame.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { TableComponent } from './components/table/table.component';
 
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'juegos/trivia', component: TriviagameComponent },
     { path: 'juegos/ahorcado', component: HangmangameComponent },
     { path: 'juegos/typeracer', component: TyperacerComponent },
-    { path: 'juegos/survey', component: SurveyComponent }
+    { path: 'juegos/survey', component: SurveyComponent },
+    { path: 'juegos/table', component: TableComponent }
     //{ path: '**', component: PageNotFoundComponent },
 ];
