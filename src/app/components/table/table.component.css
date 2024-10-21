@@ -1,0 +1,55 @@
+.container {
+    margin: 4% auto;
+    border: dashed #4f46e5 4px;
+    height: 75%;
+    width: 100vh; 
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 20px;
+    justify-content: flex-start;
+    padding: 0.5%;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    border:  red solid 2px;
+}
+
+
+.my-table {
+    border-radius: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.filter-container {
+    margin-bottom: 20px; 
+}
+
+#filter {
+    padding: 10px 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
+    color: #333; 
+    background-color: #fff; 
+    transition: border-color 0.3s; 
+    width: 200px; 
+    cursor: pointer; 
+}
+
+
+#filter:focus {
+    border-color: #4f46e5; 
+    outline: none;
+}
+
+
+#filter option {
+    padding: 10px; 
+}
+

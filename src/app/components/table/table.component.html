@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="filter-container">
+        <select id="filter" [(ngModel)]="selectedGame" (change)="applyFilter()">
+            <option value="">Elegí un juego</option>
+            <option *ngFor="let option of games" [value]="option">{{ option }}</option>
+        </select>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="my-table min-w-full divide-y divide-gray-200">
+        <!-- Definición de columnas -->
+
+        <ng-container matColumnDef="Usuario">
+            <th mat-header-cell *matHeaderCellDef class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Nombre </th>
+            <td mat-cell *matCellDef="let element" class="px-6 py-4 text-center whitespace-nowrap"> {{element.userEmail}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Puntuación">
+            <th mat-header-cell *matHeaderCellDef class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Score </th>
+            <td mat-cell *matCellDef="let element" class="px-6 py-4 text-center whitespace-nowrap"> {{element.score}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="Fecha">
+            <th mat-header-cell *matHeaderCellDef class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"> Fecha </th>
+            <td mat-cell *matCellDef="let element" class="px-6 py-4 text-center whitespace-nowrap"> {{element.date}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
