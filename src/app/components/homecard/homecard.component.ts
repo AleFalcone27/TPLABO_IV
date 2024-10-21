@@ -12,6 +12,7 @@ export class HomecardComponent {
   @Input() title!:string;
   @Input() description!:string;
   @Input() path!:string;
+  @Input() btnText!:string;
 
   constructor(private router: Router){
   }
