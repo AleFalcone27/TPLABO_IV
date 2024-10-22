@@ -1,6 +1,7 @@
 body {
      height: 100vh;
      width: 100vw;
+     overflow-x: hidden;
   }
 
   .container {
@@ -8,7 +9,7 @@ body {
   }
 
   .slider-thumb1::before {
-    left: 60%;
+    left: 50%;
     top: -10%;
     width: 950px;
     height: 750px;
