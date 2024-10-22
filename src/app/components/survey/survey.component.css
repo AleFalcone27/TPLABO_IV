@@ -9,6 +9,7 @@
     border-radius: 20px;
     justify-content: center;
     padding: 3%;
+    background-color:  #ffff;
 }
 
 .form > * {
@@ -38,6 +39,19 @@
 }
 
 textarea { 
-
     resize: none;
 }
+
+.slider-thumb1::before {
+    left: 5%;
+    top: 1%;
+    width: 600px;
+    height: 650px;
+  }
+  
+  .slider-thumb2::before {
+    left: 70%;
+    top: 40%;
+    width: 550px;
+    height: 700px;
+  }

@@ -1,3 +1,8 @@
+.navbar-container {
+    position: relative;
+    margin-bottom: 1.5vh;   
+}
+
 .text-sm {
     font-size: 1rem;
     font-weight: 500;

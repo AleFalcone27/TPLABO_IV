@@ -1,5 +1,6 @@
 .card-container {
         border: dashed #4f46e5 4px;
+        background-color:#ffff;
         height: 75%;
         width: 20vw;
         display: flex;
@@ -24,12 +25,14 @@
 
 .title {
         align-self: center;
-        font-weight: 600;
+        font-size: 1.5em;
+        font-weight: 800;
+        position: relative;
+        color: #4f46e5;
 }
 
 .path {
         align-self: flex-end;
-        color: red;
 }
 
 @-webkit-keyframes vibrate-2 {

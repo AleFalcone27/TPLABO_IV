@@ -8,36 +8,18 @@ body {
   }
 
   .slider-thumb1::before {
-    position: absolute;
-    content: "";
-    left: 64%;
-    top: 6%;
-    width: 450px;
-    height: 450px;
-    background: #4f46e5;
-    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-    will-change: border-radius, transform, opacity;
-    animation: sliderShape 5s linear infinite;
-    display: block;
-    z-index: -1;
-    -webkit-animation: sliderShape 5s linear infinite;
+    left: 60%;
+    top: -10%;
+    width: 950px;
+    height: 750px;
   }
 
-
   .slider-thumb2::before {
-    position: absolute;
-    content: "";
-    left: 10%;
+    left: -5%;
     top: 45%;
-    width: 300px;
-    height: 450px;
-    background: #4f46e5;
-    border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
-    will-change: border-radius, transform, opacity;
-    animation: sliderShape 5s linear infinite;
-    display: block;
-    z-index: -1;
-    -webkit-animation: sliderShape 5s linear infinite;
+    width: 800px;
+    height: 850px;
+
   }
   @keyframes sliderShape{
     0%,100%{

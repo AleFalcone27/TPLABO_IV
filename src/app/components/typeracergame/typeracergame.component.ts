@@ -21,7 +21,7 @@ export class TyperacerComponent implements IGame {
   quote: string = ''; 
   userInput: string = ''; 
   arrayQuote: { character: string, correct: boolean | null }[] = []; 
-  countdown: number = 5; 
+  countdown: number = 60; 
   countdownInterval: any; 
   score: number = 0;
 

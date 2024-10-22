@@ -1,5 +1,7 @@
-<div class="container">
+<div class="slider-thumb1"></div>
+<div class="slider-thumb2"></div>
 
+<div class="container">
   <form class="form" [formGroup]="form" (ngSubmit)="sendForm()">
 
     <div class="form-control-group col-5">
@@ -45,7 +47,8 @@
         <div *ngIf="phoneNumber?.invalid && (phoneNumber?.touched || phoneNumber?.dirty)">
           <small class="text-danger" *ngIf="phoneNumber?.errors?.['required']">El número de teléfono es
             obligatorio.</small>
-          <small class="text-danger" *ngIf="phoneNumber?.errors?.['minlength'] || phoneNumber?.errors?.['maxlength']">El número debe tener menos de 10 y más de 8 numeros.</small>
+          <small class="text-danger" *ngIf="phoneNumber?.errors?.['minlength'] || phoneNumber?.errors?.['maxlength']">El
+            número debe tener menos de 10 y más de 8 numeros.</small>
           <small class="text-danger" *ngIf="phoneNumber?.errors?.['pattern']"> No se permiten letras</small>
         </div>
       </div>

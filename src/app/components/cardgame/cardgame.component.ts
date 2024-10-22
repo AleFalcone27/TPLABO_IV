@@ -19,6 +19,7 @@ import { IGame } from '../../interfaces/iGame';
 
 })
 export class CardgameComponent implements OnInit, IGame {
+
   card!: card;
   lastCard!: card;
   guessCount: number = 0;
@@ -30,6 +31,7 @@ export class CardgameComponent implements OnInit, IGame {
     this.cardsApiService.initDeck().subscribe((response) => {
       if (response && response.cards) {
         this.card = response.cards[0];
+        this.snackBar.openSnackBar('Presiona JUGAR para comenzar', '🎲');
       }
     });
   }
@@ -83,7 +85,6 @@ export class CardgameComponent implements OnInit, IGame {
     this.dialogComponent.openDialog().afterClosed().subscribe(result => {
 
       this.scoreService.WriteScore(1, this.score) // Guardamos la putuacion en la base de datos
-
       if (result) {
         this.replay();
       } else {

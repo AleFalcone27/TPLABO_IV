@@ -10,13 +10,13 @@ import { IGame } from '../../interfaces/iGame';
 @Component({
   selector: 'app-triviagame',
   standalone: true,
-  imports: [SnackBarOverviewExample,CommonModule, DialogComponent],
+  imports: [SnackBarOverviewExample,CommonModule],
   templateUrl: './triviagame.component.html',
   styleUrl: './triviagame.component.css',
   providers: [SnackBarOverviewExample, DialogComponent]
 })
-export class TriviagameComponent implements OnInit, IGame{
 
+export class TriviagameComponent implements OnInit, IGame{
   score: number = 0;
   options: string[] = [];
   characterList!: any;
@@ -29,7 +29,7 @@ export class TriviagameComponent implements OnInit, IGame{
   guessLimit: number = 6;
 
   constructor(private scoreService:ScoreService, private router:Router, private dialogComponent:DialogComponent, private RickandMortyApiService:RickandmortyApiService,private snackBar: SnackBarOverviewExample) {
-    this.snackBar.openSnackBar('Presiona cualquier botón para comenzar a jugar', '🎲');
+    this.snackBar.openSnackBar('Presiona JUGAR para comenzar', '🎲');
   }
 
   ngOnInit(): void {

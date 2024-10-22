@@ -11,6 +11,7 @@
     z-index: 3;
     flex-wrap: wrap;
     align-items: center;
+    background-color:  #ffff;
 }
 
 .countdown-container {
@@ -60,4 +61,19 @@ textarea {
   width: 0em;
   margin: 0px;
   line-height: 2em;
+}
+
+
+.slider-thumb1::before {
+  left: 5%;
+  top: 1%;
+  width: 600px;
+  height: 650px;
+}
+
+.slider-thumb2::before {
+  left: 70%;
+  top: 40%;
+  width: 550px;
+  height: 700px;
 }
