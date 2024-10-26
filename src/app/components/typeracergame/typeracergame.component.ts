@@ -21,7 +21,7 @@ export class TyperacerComponent implements IGame {
   quote: string = ''; 
   userInput: string = ''; 
   arrayQuote: { character: string, correct: boolean | null }[] = []; 
-  countdown: number = 60; 
+  countdown: number = 40; 
   countdownInterval: any; 
   score: number = 0;
 
@@ -45,14 +45,8 @@ export class TyperacerComponent implements IGame {
   }
 
   getRandomQuote(): void {
-    this.quoteApiService.getQuote().subscribe((response) => {
-      if (response && response.content) {
-        this.quote = response.content;
-        this.renderArrayQuote();
-      } else {
-        this.quote = 'Error: No se pudo cargar la cita'; 
-      }
-    });
+    this.quote = this.quoteApiService.getQuote()
+    this.renderArrayQuote();
   }
 
   renderNewQuote(): void {
@@ -103,7 +97,7 @@ export class TyperacerComponent implements IGame {
 
   stopCountdown(): void {
     clearInterval(this.countdownInterval);
-    this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 60 segundos', '❌');
+    this.snackBar.openSnackBar('¡Juego terminado! Has alcanzado el límite de 40 segundos', '❌');
     this.hiddenTextarea.nativeElement.blur(); 
     this.endGame();
   }
@@ -112,7 +106,7 @@ export class TyperacerComponent implements IGame {
     this.score = this.arrayQuote.filter(quoteChar => quoteChar.correct).length
     this.dialogComponent.openDialog().afterClosed().subscribe(result => {
 
-      this.scoreService.WriteScore(4, this.score) // Guardamos la putuacion en la base de datos
+      this.scoreService.WriteScore(4, this.score) 
 
       if (result) {
         this.replay();
@@ -127,7 +121,7 @@ export class TyperacerComponent implements IGame {
       this.userInput = ''; 
       this.arrayQuote = [];   
       this.score = 0;
-      this.countdown = 5;
+      this.countdown = 40;
       this.ngOnInit();
       this.startCountdown()
     }
