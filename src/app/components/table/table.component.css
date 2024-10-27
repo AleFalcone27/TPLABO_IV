@@ -15,8 +15,7 @@
 
 .table-wrapper {
     flex: 1;
-    overflow-y: auto; /* Permite scroll vertical */
-    overflow-x: auto; /* Permite scroll horizontal si es necesario */
+    overflow-y: auto; 
     margin-top: 20px;
 }
 
