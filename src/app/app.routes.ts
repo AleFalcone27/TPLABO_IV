@@ -9,6 +9,8 @@ import { HangmangameComponent } from './components/hangmangame/hangmangame.compo
 import { TyperacerComponent } from './components/typeracergame/typeracergame.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { TableComponent } from './components/table/table.component';
+import { TableSurveyComponent } from './components/table-survey/table-survey.component';
+import { adminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -22,6 +24,6 @@ export const routes: Routes = [
     { path: 'juegos/ahorcado', component: HangmangameComponent },
     { path: 'juegos/typeracer', component: TyperacerComponent },
     { path: 'juegos/survey', component: SurveyComponent },
-    { path: 'juegos/table', component: TableComponent }
-    //{ path: '**', component: PageNotFoundComponent },
+    { path: 'juegos/table', component: TableComponent },
+    { path : 'juegos/survey/resultados', component: TableSurveyComponent, canActivate: [adminGuard]}
 ];
