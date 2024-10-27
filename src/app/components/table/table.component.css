@@ -13,12 +13,19 @@
     overflow: hidden; 
 }
 
+.table-wrapper {
+    flex: 1;
+    overflow-y: auto; /* Permite scroll vertical */
+    overflow-x: auto; /* Permite scroll horizontal si es necesario */
+    margin-top: 20px;
+}
+
 .filter-container {
     display: flex;
     justify-content: center;
 }
 
-.my-table { 
+.my-table {
     border-radius: 20px;
     width: 100%;
     border-collapse: collapse;
