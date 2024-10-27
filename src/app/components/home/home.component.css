@@ -6,7 +6,7 @@
   opacity: 1;
   z-index: 1;
   position: relative;
-
+  min-width: fit-content; 
 }
 
 .slider-thumb1::before {
@@ -30,6 +30,7 @@
   height: 75vh;
   width: 25%; 
   z-index: 10;
+  min-width: 300px;
 }
 
 .cards-container {

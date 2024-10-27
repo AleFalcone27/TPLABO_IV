@@ -14,6 +14,7 @@ export class HomecardComponent {
   @Input() description!: string;
   @Input() path!: string;
   @Input() btnText!: string;
+  @Input() imageUrl: string = '';
 
   constructor(private router: Router, private authService: AuthService) {
   }

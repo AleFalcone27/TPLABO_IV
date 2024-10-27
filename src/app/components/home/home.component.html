@@ -5,37 +5,36 @@
     <div class="slider-thumb2"></div>
 
     <app-homecard [title]="'MAYOR O MENOR'"
-      [description]="'En el juego de Mayor o Menor, debes adivinar si la carta siguiente será mayor o menor que la carta actual. Si aciertas ganarás 1 punto, caso contrario perderás 1 ¿Estás listo para este desafío?'"
-      [path]="'/mayoromenor'" [btnText]="'Jugar'"></app-homecard>
+      [description]="'En el juego de Mayor o Menor, debes adivinar si la carta siguiente será mayor o menor que la carta actual. Si aciertas ganarás 1 punto, caso contrario perderás 1'"
+      [path]="'/mayoromenor'" [btnText]="'Jugar'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/mayoromenor.png?alt=media&token=6cc384a3-3377-4447-85e9-62b0908c79a0'"></app-homecard>
 
     <app-homecard [title]="'AHORCADO'"
-      [description]="'En este juego, debes adivinar la palabra misteriosa con un maximo de 6 erores. Si logras adivinar la palabra recibiras 10 puntos, si pierdes 0 ¿Estás listo para probar tu suerte?'"
-      [path]="'/ahorcado'" [btnText]="'Jugar'"></app-homecard>
+      [description]="'En este juego, debes adivinar la palabra misteriosa con un maximo de 6 erores. Si logras adivinar la palabra recibiras 10 puntos, si pierdes 0'"
+      [path]="'/ahorcado'" [btnText]="'Jugar'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/ahorcado.png?alt=media&token=90c1cec8-7c10-4cfe-a9cc-ecf57436f6f5'" ></app-homecard>
 
     <app-homecard [title]="'TRIVIA'"
       [description]="'Este juego, esta basado en la famosa serie de Rick y Morty. ¿Recúerdas los nombres de los personajes? Hay más de 800'"
-      [path]="'/trivia'" [btnText]="'Jugar'"></app-homecard>
+      [path]="'/trivia'" [btnText]="'Jugar'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/trivia.png?alt=media&token=b4f821d4-ac72-41ea-97e9-ba8f7094a431'" ></app-homecard>
 
     <app-homecard [title]="'TYPERACER'"
-      [description]="'En este juego, pondremos a prueba tu velocidad de escritura y tu conocimiento de inglés, tendrás 60 segundos para escribir la mayor cantidad de palabras que puedas. No debes presionar nada, ¡Solo escribe!'"
-      [path]="'/typeracer'" [btnText]="'Jugar'"></app-homecard>
+      [description]="'En este juego, pondremos a prueba tu velocidad de escritura y tu conocimiento de inglés, tendrás 60 segundos para escribir la mayor cantidad de palabras que puedas.'"
+      [path]="'/typeracer'" [btnText]="'Jugar'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/typeracer.png?alt=media&token=faf2c26e-8e76-4c36-bb77-7b8a1612d653'"></app-homecard> 
 
 
     <ng-container *ngIf="isAdmin; else noAdmin">
       <app-homecard [title]="'VER ENCUESTA'"
         [description]="'Revisa los resultados de la encuesta realizada por los usuariuos'"
-        [path]="'/survey/resultados'" [btnText]="'Ver encuesta'"></app-homecard>
+        [path]="'/survey/resultados'" [btnText]="'Ver encuesta'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/adminSurvey.png?alt=media&token=c0ede0de-f80f-477a-a880-95f2d6afc3d6'"></app-homecard>
     </ng-container>
 
     <ng-template #noAdmin>
       <app-homecard [title]="'ENCUESTA'"
         [description]="'Contanos como fue tu experiencia utilizando nuestra sala de juegos. Tu opinión nos ayuda a mejorar'"
-        [path]="'/survey'" [btnText]="'Completar encuesta'"></app-homecard>
+        [path]="'/survey'" [btnText]="'Completar encuesta'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/survey.png?alt=media&token=01681051-d6f3-44c5-8615-9b17f8c16062'" ></app-homecard>
     </ng-template>
 
-
     <app-homecard [title]="'PUNTUACIONES'" [description]="'Accede a la tabla de puntuaciones global'" [path]="'/table'"
-      [btnText]="'Ver'"></app-homecard>
+      [btnText]="'Ver'" [imageUrl]="'https://firebasestorage.googleapis.com/v0/b/labo4-4bb6e.appspot.com/o/scores.png?alt=media&token=5cbb16e9-ce4e-4bf2-b4d2-0bbfe54d00a3'" ></app-homecard>
 
 
   </div>
