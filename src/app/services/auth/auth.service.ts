@@ -9,7 +9,7 @@ import { Firestore, collection, addDoc, Timestamp, query, where, getDocs, orderB
 })
 export class AuthService {
   private adminStatusSubject = new BehaviorSubject<boolean>(
-    JSON.parse(localStorage.getItem('isAdmin') || 'false')  // Inicializa con el valor guardado
+    JSON.parse(localStorage.getItem('isAdmin') || 'false')  
   );
   adminStatus$ = this.adminStatusSubject.asObservable();
   user!: object | null;
@@ -17,12 +17,10 @@ export class AuthService {
 
   constructor(private firestore: Firestore) {
     this.auth = getAuth();
-    // Verificar el estado de admin al iniciar el servicio
     this.checkInitialAdminStatus();
   }
 
   private async checkInitialAdminStatus() {
-    // Si hay un usuario autenticado, verifica su estado de admin
     if (this.auth.currentUser) {
       await this.isAdmin();
     }
