@@ -49,8 +49,8 @@ h2 {
 
 
 .slider-thumb1::before {
-    left: 75%;
-    top: 60%;
+    left: 60%;
+    top: 50%;
     width: 750px;
     height: 650px;
   }

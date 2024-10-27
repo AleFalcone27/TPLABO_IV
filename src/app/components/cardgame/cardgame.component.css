@@ -9,6 +9,7 @@
     border-radius: 20px;
     justify-content: space-between;
     padding: 3%;
+    background: #fffF;
 }
 
 img {
@@ -43,7 +44,7 @@ Button:last-child {
 
 
   .slider-thumb1::before {
-    left: 80%;
+    left: 65%;
     top: -5%;
     width: 650px;
     height: 950px;
