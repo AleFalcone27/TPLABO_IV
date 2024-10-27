@@ -2,7 +2,7 @@
     margin: 4% auto;
     border: dashed #4f46e5 4px;
     background-color: #fffF;
-    height: 75%;
+    height: 75vh; 
     width: 100vh; 
     display: flex;
     flex-direction: column;
@@ -10,6 +10,7 @@
     border-radius: 20px;
     justify-content: flex-start;
     padding: 0.5%;
+    overflow: hidden; 
 }
 
 .filter-container {
@@ -17,8 +18,17 @@
     justify-content: center;
 }
 
-.my-table {
+.my-table { 
     border-radius: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.my-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
 }
 
 .text-center {
